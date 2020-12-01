@@ -15,3 +15,9 @@ steps:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DevOpsACRConnection'
+    repository: 'DevOpsContainer'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
